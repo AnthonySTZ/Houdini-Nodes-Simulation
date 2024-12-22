@@ -20,5 +20,5 @@ class Spring:
         distance: float = displacement.length() - self.restlength
         direction: Vector2 = displacement.normalize()
         force: Vector2 = direction * (-self.stiffness * distance)
-        self.particle_a.apply_force(force)
-        self.particle_b.apply_force(-force)
+        self.particle_a.apply_force(-force)
+        self.particle_b.apply_force(force)

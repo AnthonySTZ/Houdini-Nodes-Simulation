@@ -15,7 +15,7 @@ def simulate() -> None:
     world.add_particles(selected_nodes)
     anchor_nodes: list = nodes.get_anchor_nodes(selected_nodes)
     world.add_anchors(anchor_nodes)
-    spring: Spring = Spring(0.05, 100, world.particles[0], world.particles[1])
+    spring: Spring = Spring(0.5, 5, world.particles[0], world.particles[1])
     world.add_springs([spring])
 
     start_time = time.time()
@@ -46,4 +46,4 @@ def start_simulation() -> None:
 def stop_simulation() -> None:
     global thread
     thread = False
-    print("Simulation stopped.")
+    # print("Simulation stopped.")

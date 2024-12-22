@@ -1,11 +1,13 @@
 from spring.particle import Particle
 from spring.spring import Spring
+from spring.math import Vector2
 
 
 class World:
     def __init__(self) -> None:
         self.particles: list[Particle] = []
         self.springs: list[Spring] = []
+        self.gravity = Vector2(0, -1)
 
     def add_particles(self, particles: list) -> None:
         for particle in particles:
@@ -26,4 +28,4 @@ class World:
             for spring in self.springs:
                 spring.update()
             for particle in self.particles:
-                particle.update(dt)
+                particle.update(self.gravity, dt)

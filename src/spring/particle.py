@@ -13,10 +13,10 @@ class Particle:
     def apply_force(self, force: Vector2) -> None:
         self.acceleration += force
 
-    def update(self, dt: float) -> None:
+    def update(self, gravity: float, dt: float) -> None:
         if self.is_anchor:
             return
-        self.velocity += self.acceleration * dt
+        self.velocity += (self.acceleration + gravity) * dt
         self.position += self.velocity * dt
         self.acceleration *= 0
         self.node.setPosition(hou.Vector2(self.position.x, self.position.y))
