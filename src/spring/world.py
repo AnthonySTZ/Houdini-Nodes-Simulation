@@ -1,10 +1,11 @@
 from spring.particle import Particle
+from spring.spring import Spring
 
 
 class World:
     def __init__(self) -> None:
-        self.particles = []
-        self.springs = []
+        self.particles: list[Particle] = []
+        self.springs: list[Spring] = []
 
     def add_particles(self, particles: list) -> None:
         for particle in particles:
@@ -16,6 +17,13 @@ class World:
             particle.is_anchor = True
             self.particles.append(particle)
 
+    def add_springs(self, springs: list) -> None:
+        for spring in springs:
+            self.springs.append(spring)
+
     def update(self, dt: float) -> None:
         if dt > 0:
-            print(f"FPS : {1/dt}")
+            for spring in self.springs:
+                spring.update()
+            for particle in self.particles:
+                particle.update(dt)
