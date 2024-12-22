@@ -6,3 +6,4 @@ class Particles:
         self.position = Vector2(x, y)
         self.velocity = Vector2(0, 0)
         self.acceleration = Vector2(0, 0)
+        self.is_anchor = False
