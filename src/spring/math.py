@@ -3,6 +3,7 @@ class Vector2:
         self.x = x
         self.y = y
 
+    @property
     def length(self) -> float:
         return (self.x**2 + self.y**2) ** 0.5
 
