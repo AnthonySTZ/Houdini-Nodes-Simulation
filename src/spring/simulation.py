@@ -15,12 +15,21 @@ def simulate() -> None:
     anchor_nodes: list = nodes.get_anchor_nodes(selected_nodes)
     world.add_anchors(anchor_nodes)
 
-    i = 0
+    start_time = time.time()
+    previous_time = start_time
+    duration = 10
+    delta_time = 0
     global thread
-    while thread and i < 10:
-        print(f"{i} seconds")
-        time.sleep(1)
-        i += 1
+    while thread:
+        current_time = time.time()
+        elapsed_time = current_time - start_time
+        if elapsed_time > duration:
+            thread = False
+            break
+
+        delta_time = current_time - previous_time
+        world.update(delta_time)
+        previous_time = current_time
 
 
 def start_simulation() -> None:

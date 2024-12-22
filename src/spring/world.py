@@ -15,3 +15,7 @@ class World:
             particle = Particle(anchor)
             particle.is_anchor = True
             self.particles.append(particle)
+
+    def update(self, dt: float) -> None:
+        if dt > 0:
+            print(f"FPS : {1/dt}")
