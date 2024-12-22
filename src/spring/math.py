@@ -3,6 +3,9 @@ class Vector2:
         self.x = x
         self.y = y
 
+    def length(self) -> float:
+        return (self.x**2 + self.y**2) ** 0.5
+
     def __add__(self, other: "Vector2") -> "Vector2":
         return Vector2(self.x + other.x, self.y + other.y)
 
