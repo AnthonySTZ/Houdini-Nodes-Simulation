@@ -3,12 +3,11 @@ class Vector2:
         self.x = x
         self.y = y
 
-    @property
     def length(self) -> float:
         return (self.x**2 + self.y**2) ** 0.5
 
     def normalize(self) -> "Vector2":
-        length = self.length
+        length = self.length()
         return (
             Vector2(self.x / length, self.y / length) if length > 0 else Vector2(0, 0)
         )
