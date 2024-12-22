@@ -4,7 +4,7 @@ import threading
 thread = False
 
 
-def write() -> None:
+def simulate() -> None:
     i = 0
     global thread
     while thread and i < 10:
@@ -13,11 +13,11 @@ def write() -> None:
         i += 1
 
 
-def simulate() -> None:
+def start_simulation() -> None:
     print("Simulating the process...")
     global thread
     thread = True
-    threading.Thread(target=write, daemon=True).start()
+    threading.Thread(target=simulate, daemon=True).start()
 
 
 def stop_simulation() -> None:

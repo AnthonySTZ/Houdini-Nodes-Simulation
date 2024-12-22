@@ -1,7 +1,7 @@
 from PySide2.QtWidgets import QDialog, QPushButton, QVBoxLayout, QSizePolicy
 from PySide2.QtCore import Qt
 import hou  # type: ignore
-from spring.simulation import simulate, stop_simulation
+from spring.simulation import start_simulation, stop_simulation
 
 
 class MainWindow(QDialog):
@@ -42,7 +42,7 @@ class MainWindow(QDialog):
     def convert_btn_event(self) -> None:
         self.stop_button.setEnabled(True)
         self.convert_button.setEnabled(False)
-        simulate()
+        start_simulation()
 
     def stop_btn_event(self) -> None:
         self.stop_button.setEnabled(False)
