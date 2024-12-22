@@ -20,7 +20,7 @@ def simulate() -> None:
 
     start_time = time.time()
     previous_time = start_time
-    duration = 20
+    duration = 30
     delta_time = 0
     global thread
     while thread:
