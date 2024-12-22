@@ -18,5 +18,9 @@ class Particle:
             return
         self.velocity += (self.acceleration + gravity) * dt
         self.position += self.velocity * dt
+        self.velocity *= 0.9997  # damping
         self.acceleration *= 0
         self.node.setPosition(hou.Vector2(self.position.x, self.position.y))
+
+    def update_user_position(self) -> None:
+        self.position = Vector2(self.node.position().x(), self.node.position().y())

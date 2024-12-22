@@ -15,12 +15,12 @@ def simulate() -> None:
     world.add_particles(selected_nodes)
     anchor_nodes: list = nodes.get_anchor_nodes(selected_nodes)
     world.add_anchors(anchor_nodes)
-    spring: Spring = Spring(0.5, 5, world.particles[0], world.particles[1])
-    world.add_springs([spring])
+    springs: list = nodes.get_springs(world.particles, 2, 2)
+    world.add_springs(springs)
 
     start_time = time.time()
     previous_time = start_time
-    duration = 50
+    duration = 20
     delta_time = 0
     global thread
     while thread:
